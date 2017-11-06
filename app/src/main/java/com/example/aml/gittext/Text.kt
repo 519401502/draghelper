@@ -10,7 +10,8 @@ class Text {
     fun text(arg: String, argss: String): String{
         var s = "测试"
         Log.d("~", "测试类 第二次 text分支添加")
-        var ss = "实验"
+        var ss = "实验dfs"
+
         return s
     }
 
