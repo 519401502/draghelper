@@ -14,4 +14,23 @@ class Text {
         return s
     }
 
+    fun su(blank: suspend (str: String,st: String) -> String): String {
+        return ""
+    }
+
+    fun suspendText():String{
+        println("fdsafsa")
+//        val lists = arrayListOf(1,3,2)
+//        lists.filter {
+//            return@filter true
+//        }
+//        for (i in 0 until lists.size)
+//            println(lists[i])
+        return ""
+    }
+}
+
+fun main(args: Array<String>) {
+    val text = Text()
+    text.suspendText()
 }
