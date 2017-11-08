@@ -11,12 +11,14 @@ class Text {
         var s = "测试"
         Log.d("~", "测试类 第二次 text分支添加")
 
+        Log.d("", "切换远程库分支测试")
+
+
         return s
     }
 
     suspend fun su(blank: suspend (str: String, st: String) -> String): String {
         blank.invoke("", "")
-
         return ""
     }
 
