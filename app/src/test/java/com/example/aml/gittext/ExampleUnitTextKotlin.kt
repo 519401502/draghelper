@@ -1,7 +1,11 @@
 package com.example.aml.gittext
 
+
 import org.junit.Test
 import java.io.*
+import java.net.HttpURLConnection
+import java.net.Socket
+import java.net.SocketAddress
 import java.net.URL
 
 /**
@@ -50,6 +54,71 @@ class ExampleUnitTextKotlin{
         output.write(byteArrays.toByteArray())
         output.flush()
         output.close()
+    }
+
+    /**
+     * websocket测试
+     */
+    @Test fun webSocketText() {
+        val url = URL("http://115.159.78.127:8080/noticecontroller/info")
+        val conection = url.openConnection() as HttpURLConnection
+        conection.setRequestProperty("Upgrade", "websocket")
+        conection.setRequestProperty("Connection", "Upgrade")
+        conection.setRequestProperty("Sec-WebSocket-Key", "xqBt3ImNzJbYqRINxEFlkg==")
+        conection.setRequestProperty("Sec-WebSocket-Version", "13")
+        conection.setRequestProperty("Sec-WebSocket-Protocol", "chat, superchat")
+
+        val map = conection.headerFields
+
+        println("显示响应Header信息...\n")
+
+        for (entry in map.entries) {
+            println("Key : " + entry.key +
+                    " ,Value : " + entry.value)
+        }
+
+        println("\n使用key获得响应Header信息 \n")
+        val server = map.get("Server")
+        var input = conection.inputStream
+        val reader = BufferedReader(InputStreamReader(input))
+        println(reader.readLine())
+
+
+
+
+//        var webSocket = WebSocketConnection()
+
+//        webSocket.connect("ws://115.159.78.127:8080/noticecontroller/info", object : WebSocketHandler() {
+//            override fun onOpen() {
+//                super.onOpen()
+//                System.out.println("已经连接")
+//            }
+//
+//            override fun onClose(code: Int, reason: String?) {
+//                super.onClose(code, reason)
+//                System.out.println("已经关闭")
+//
+//            }
+//
+//            override fun onBinaryMessage(payload: ByteArray?) {
+//                super.onBinaryMessage(payload)
+//                System.out.println("已经关闭")
+//
+//            }
+//
+//            override fun onRawTextMessage(payload: ByteArray?) {
+//                super.onRawTextMessage(payload)
+//            }
+//
+//            override fun onTextMessage(payload: String?) {
+//                super.onTextMessage(payload)
+//            }
+//        })
+    }
+
+    @Test fun socketText() {
+        val socket = Socket("127.0.0.1", 8888)
+
     }
 
 }
