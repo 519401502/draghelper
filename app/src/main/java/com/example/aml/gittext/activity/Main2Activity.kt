@@ -3,6 +3,7 @@ package com.example.aml.gittext.activity
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.HandlerThread
+import android.util.Log
 import com.example.aml.gittext.R
 import com.example.aml.gittext.activity.threads.HandlerThreadText
 
@@ -17,12 +18,9 @@ class Main2Activity : AppCompatActivity() {
 
 
         var aHandlerThread = HandlerThreadText(hanlderThread.looper)
-
-
         aHandlerThread.sendEmptyMessage(1)
 
     }
-
 
 
 

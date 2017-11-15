@@ -20,3 +20,4 @@ fun <T : String> local(obj:() -> String): T {
     println(str)
     return "第三层接收" as T
 }
+
