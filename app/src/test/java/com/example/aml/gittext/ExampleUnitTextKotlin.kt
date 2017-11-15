@@ -19,6 +19,7 @@ class ExampleUnitTextKotlin{
     @Test fun t() {
         val url = URL("http://gdown.baidu.com/data/wisegame/2336735c7e89381c/weixin_1120.apk")
         val httpUrlContent = url.openConnection()
+
         httpUrlContent.doInput = true
 
         httpUrlContent.doOutput = true
