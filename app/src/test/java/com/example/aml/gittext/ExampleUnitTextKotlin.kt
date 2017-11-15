@@ -24,6 +24,7 @@ class ExampleUnitTextKotlin{
         httpUrlContent.setRequestProperty("Range", "bytes=1000-")
         httpUrlContent.connect()
 
+
         var length = httpUrlContent.contentLength
         val inputStream = httpUrlContent.getInputStream() ?: return
         val byteArray = ByteArrayOutputStream()
