@@ -26,6 +26,7 @@ class ExampleUnitTextKotlin{
 
 
 
+
         var length = httpUrlContent.contentLength
         val inputStream = httpUrlContent.getInputStream() ?: return
         val byteArray = ByteArrayOutputStream()
