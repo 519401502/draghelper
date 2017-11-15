@@ -14,7 +14,7 @@ import java.net.URL
 class ExampleUnitTextKotlin{
 
     /**
-     * java 断点续传。
+     * java 断点续传.
      */
     @Test fun t() {
         val url = URL("http://gdown.baidu.com/data/wisegame/2336735c7e89381c/weixin_1120.apk")
