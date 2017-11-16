@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.TextView;
 import com.example.aml.gittext.R;
 
+import java.net.HttpURLConnection;
+
 /**
  * 123
  */
@@ -23,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, Main2Activity.class));
                 finish();
+                Runtime runtime = Runtime.getRuntime();
+
             }
         });
     }
@@ -31,19 +35,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         Log.d("~", "onStop");
+
     }
 
     @Override
     public void onTrimMemory(int level) {
         super.onTrimMemory(level);
         Log.d("~", "onTrimMemory");
-
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         Log.d("~", "onDestroy");
-
     }
 }

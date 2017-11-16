@@ -2,6 +2,7 @@ package com.example.aml.gittext;
 
 import org.junit.Test;
 
+import java.util.LinkedList;
 import java.util.UUID;
 
 import static org.junit.Assert.*;
@@ -15,7 +16,8 @@ public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() throws Exception {
         System.out.println(UUID.randomUUID().toString());
-
+        LinkedList<String> list = new LinkedList<>();
+        list.add("dsfa");
     }
 
 }
