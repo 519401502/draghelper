@@ -14,6 +14,21 @@ class FileText {
 
     }
 
+    open class Textt {
+
+        constructor(){
+            println("构造函数")
+        }
+
+        fun text(): Unit {
+            println("text方法")
+        }
+
+        init {
+            println("init 方法")
+        }
+    }
+
     open class MyFileObserver : FileObserver {
 
         constructor(path: String) : super(path)
