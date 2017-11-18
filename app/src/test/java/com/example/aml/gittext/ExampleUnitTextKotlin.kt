@@ -16,36 +16,26 @@ class ExampleUnitTextKotlin{
     /**
      * java 断点续传.
      */
-    @Test fun t() {
+    @Test fun text() {
         val url = URL("http://gdown.baidu.com/data/wisegame/2336735c7e89381c/weixin_1120.apk")
         val httpUrlContent = url.openConnection()
-
         httpUrlContent.doInput = true
-
         httpUrlContent.doOutput = true
+        //设置头信息Range, 从第1000位字节开始拉取，包括1000
         httpUrlContent.setRequestProperty("Range", "bytes=1000-")
         httpUrlContent.connect()
-
-
-
-
         var length = httpUrlContent.contentLength
         val inputStream = httpUrlContent.getInputStream() ?: return
         val byteArray = ByteArrayOutputStream()
-//        var bytes = ByteArray(1)
         byteArray.write(inputStream.readBytes(length))
-//        while ((inputStream.read(bytes)) > 0){
-//            var len = bytes.size
-//            byteArray.write(bytes)
-//        }
-        println("接收到的length = " + byteArray.size())
+        save(byteArray.toByteArray())
+    }
 
-
-        println("length = $length")
-
-
-        var file = File("weixin.apk")
+    fun save(b: ByteArray) {
+        //打开xxx.apk文件输出流
+        var file = File("xxx.apk")
         val byteArrays = ByteArrayOutputStream()
+        //如果xxx.apk已存在,将原有字节拉取出来，与新拉去的字节进行拼接
         if (file.exists()) {
             var input = file.inputStream()
             var bytess = ByteArray(1)
@@ -54,9 +44,9 @@ class ExampleUnitTextKotlin{
                 byteArrays.write(bytess, 0, lens)
             }
         }
-        byteArrays.write(byteArray.toByteArray())
-
+        byteArrays.write(b)
         val output = FileOutputStream(file)
+        //字节输出
         output.write(byteArrays.toByteArray())
         output.flush()
         output.close()
@@ -66,7 +56,7 @@ class ExampleUnitTextKotlin{
      * websocket测试
      */
     @Test fun webSocketText() {
-        val url = URL("http://115.159.78.127:8080/noticecontroller/info")
+        val url = URL("ws://127.0.0.1:8080/text")
         val conection = url.openConnection() as HttpURLConnection
         conection.setRequestProperty("Upgrade", "websocket")
         conection.setRequestProperty("Connection", "Upgrade")
@@ -122,9 +112,6 @@ class ExampleUnitTextKotlin{
 //        })
     }
 
-    @Test fun socketText() {
-        val socket = Socket("127.0.0.1", 8888)
 
-    }
 
 }
